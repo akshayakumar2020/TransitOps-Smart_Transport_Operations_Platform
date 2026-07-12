@@ -1,189 +1,89 @@
-# 🚛 TransitOps Pro - Smart Transport Operations Platform
+# 🚛 TransitOps Pro
 
-> A modern, enterprise-grade Fleet & Transport Management System built using **Spring Boot**, **React**, and **PostgreSQL** to digitize logistics operations through intelligent fleet monitoring, trip management, maintenance tracking, fuel management, and real-time analytics.
+> **Smart Transport Operations Platform**
 
-![Java](https://img.shields.io/badge/Java-21-orange)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-brightgreen)
-![React](https://img.shields.io/badge/React-19-61DAFB)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791)
-![License](https://img.shields.io/badge/License-MIT-green)
+TransitOps Pro is a modern Fleet & Transport Management System developed using **Spring Boot**, **React**, and **PostgreSQL**. The platform helps logistics organizations efficiently manage vehicles, drivers, trips, maintenance, fuel consumption, operational expenses, and reports through a centralized dashboard.
 
 ---
 
-# 📖 Overview
+## 📌 About the Project
 
-TransitOps Pro is an enterprise transport operations platform that helps logistics organizations efficiently manage their fleet, drivers, trips, maintenance schedules, fuel consumption, operational expenses, and reports from a centralized dashboard.
+TransitOps Pro digitizes daily transport operations by replacing manual spreadsheets with a secure and scalable web application.
 
-The system replaces spreadsheets and manual processes with a secure, scalable, and role-based ERP solution.
+The platform enables organizations to:
 
----
-
-# 🎯 Problem Statement
-
-Many logistics companies still rely on manual spreadsheets and paper records to manage transportation operations.
-
-This results in:
-
-- Vehicle scheduling conflicts
-- Driver allocation issues
-- Missed maintenance
-- Fuel misuse
-- Poor operational visibility
-- High operational costs
-
-TransitOps Pro solves these challenges by providing a centralized transport management platform with automated business validations and real-time analytics.
+- Manage vehicles and drivers
+- Schedule and monitor trips
+- Track fuel consumption and expenses
+- Record vehicle maintenance
+- Generate operational reports
+- Monitor fleet performance through dashboards
 
 ---
 
-# ✨ Features
+## ✨ Features
 
-## 🔐 Authentication
-
+### Authentication
 - Secure Login
 - JWT Authentication
-- Role Based Access Control (RBAC)
-- Session Management
+- Role-Based Access Control (RBAC)
 
----
-
-## 🚛 Vehicle Management
-
-- Vehicle Registration
-- Vehicle Availability
-- Vehicle Status
-- Vehicle Details
-- Capacity Management
-
----
-
-## 👨 Driver Management
-
-- Driver Registration
-- License Management
-- Driver Status
-- Contact Details
-- License Expiry Tracking
-
----
-
-## 🚚 Trip Management
-
-- Create Trip
-- Assign Driver
-- Assign Vehicle
-- Dispatch Trip
-- Complete Trip
-- Trip Status
-
----
-
-## 🔧 Maintenance
-
-- Maintenance Records
-- Open / Close Maintenance
-- Vehicle Status Update
-- Maintenance Cost Tracking
-
----
-
-## ⛽ Fuel & Expense Management
-
-- Fuel Logs
-- Expense Tracking
-- Operational Cost
-- Fuel Consumption
-
----
-
-## 📊 Dashboard
-
-- Active Vehicles
-- Available Vehicles
+### Dashboard
+- Fleet Overview
 - Active Trips
-- Pending Trips
+- Available Vehicles
 - Drivers On Duty
 - Fleet Utilization
+- Operational Statistics
+
+### Vehicle Management
+- Register Vehicles
+- Vehicle Status Tracking
+- Vehicle Capacity Management
+- Vehicle Availability
+
+### Driver Management
+- Register Drivers
+- License Validation
+- Driver Availability
+- Contact Management
+
+### Trip Management
+- Create Trips
+- Assign Drivers
+- Assign Vehicles
+- Dispatch Trips
+- Complete Trips
+
+### Maintenance
+- Maintenance Records
+- Vehicle Service History
+- Maintenance Cost Tracking
+
+### Fuel & Expense Management
+- Fuel Logs
+- Expense Tracking
+- Operational Cost Analysis
+
+### Reports
+- Fleet Reports
+- Driver Reports
+- Fuel Reports
+- Maintenance Reports
 
 ---
 
-## 📈 Reports
+## 🏗️ Tech Stack
 
-- Fuel Report
-- Vehicle Report
-- Driver Report
-- Maintenance Report
-- Expense Report
+### Frontend
 
----
-
-# 🖼️ Application Screenshots
-
-## 🔐 Login
-
-![Login](docs/screenshots/login.png)
-
----
-
-## 📊 Dashboard
-
-![Dashboard](docs/screenshots/dashboard.png)
-
----
-
-## 👨 Driver Management
-
-![Drivers](docs/screenshots/drivers.png)
-
----
-
-## 🔧 Maintenance
-
-![Maintenance](docs/screenshots/maintenance.png)
-
----
-
-## ⛽ Fuel & Expense Management
-
-![Fuel](docs/screenshots/fuel-expense.png)
-
----
-
-# 🏗️ Project Structure
-
-```
-TransitOps-Pro
-│
-├── backend
-│
-├── frontend
-│
-├── docs
-│   └── screenshots
-│
-├── database
-│
-├── postman
-│
-├── README.md
-│
-└── .gitignore
-```
-
----
-
-# 🛠️ Technology Stack
-
-## Frontend
-
-- React 19
+- React
 - Vite
 - Tailwind CSS
 - Axios
 - React Router
 
----
-
-## Backend
+### Backend
 
 - Java 21
 - Spring Boot 3
@@ -193,36 +93,53 @@ TransitOps-Pro
 - Hibernate
 - Maven
 
----
-
-## Database
+### Database
 
 - PostgreSQL
 
----
-
-## Tools
+### Tools
 
 - IntelliJ IDEA
 - VS Code
-- Git
-- GitHub
 - Swagger UI
 - Postman
+- Git & GitHub
 
 ---
 
-# 👥 User Roles
+## 📂 Project Structure
 
+```
+TransitOps-Pro
+│
+├── backend/
+│
+├── frontend/
+│
+├── database/
+│
+├── docs/
+│
+├── postman/
+│
+├── README.md
+│
+└── .gitignore
+```
+
+---
+
+## 👥 User Roles
+
+- Administrator
 - Fleet Manager
 - Driver
 - Safety Officer
 - Financial Analyst
-- Administrator
 
 ---
 
-# 🔄 System Workflow
+## 🔄 Workflow
 
 ```
 Login
@@ -240,29 +157,31 @@ Dashboard
 
 ---
 
-# 🚀 Running the Project
+## 🚀 Getting Started
 
-## Backend
+### Clone Repository
 
-Navigate to backend
+```bash
+git clone https://github.com/<your-username>/TransitOps-Smart_Transport_Operations_Platform.git
+```
+
+---
+
+### Backend
 
 ```bash
 cd backend
-```
-
-Run Spring Boot
-
-```bash
+mvn clean install
 mvn spring-boot:run
 ```
 
-Backend runs on
+Backend URL
 
 ```
 http://localhost:8081
 ```
 
-Swagger
+Swagger UI
 
 ```
 http://localhost:8081/swagger-ui/index.html
@@ -270,33 +189,21 @@ http://localhost:8081/swagger-ui/index.html
 
 ---
 
-## Frontend
-
-Navigate to frontend
+### Frontend
 
 ```bash
 cd frontend
-```
-
-Install dependencies
-
-```bash
 npm install
-```
-
-Run
-
-```bash
 npm run dev
 ```
 
-Frontend runs on
+Frontend URL
 
 ```
 http://localhost:5173
 ```
 
-Login Page
+Login
 
 ```
 http://localhost:5173/login
@@ -304,48 +211,53 @@ http://localhost:5173/login
 
 ---
 
-# 🗄️ Database
+## 🗄️ Database
 
-Database
-
-```
-PostgreSQL
-```
-
-Default Port
-
-```
-5432
-```
+| Property | Value |
+|----------|-------|
+| Database | PostgreSQL |
+| Port | 5432 |
+| ORM | Hibernate |
+| Migration | Spring Data JPA |
 
 ---
 
-# 🚀 Future Enhancements
+## 📅 Development Status
 
-- Live GPS Tracking
-- QR Code Vehicle Management
-- Driver Performance Score
+| Module | Status |
+|---------|--------|
+| Authentication | ✅ Completed |
+| Dashboard | ✅ Completed |
+| Vehicle Management | 🚧 In Progress |
+| Driver Management | ✅ Completed |
+| Trip Management | 🚧 In Progress |
+| Maintenance | ✅ Completed |
+| Fuel & Expenses | ✅ Completed |
+| Reports | 🚧 In Progress |
+
+---
+
+## 🚀 Future Improvements
+
+- Live Vehicle Tracking
+- QR Code Vehicle Identification
+- Driver Performance Analytics
 - Predictive Maintenance
 - Email Notifications
-- Mobile Application
 - Fleet Health Dashboard
-- AI Route Optimization
+- AI-Based Route Optimization
 
 ---
 
-# 👨‍💻 Contributors
+## 👨‍💻 Contributors
+
 - Akshaya Kumar(Team Leader)
+- Aditya Srivastava
+- Aditya chauhan
 - Akanksha Devi
-- Aditya Srivasatava
- -Aditya chauhan
-
 
 ---
 
-# 📜 License
+## 📄 License
 
-Licensed under the MIT License.
-
----
-
-⭐ If you like this project, don't forget to give it a star.
+This project is licensed under the **MIT License**.
