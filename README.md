@@ -249,7 +249,7 @@ Reports & Analytics
 
 - **Akanksha Devi**
 - **Aditya Chauhan**
-- **Akanksha Devi**
+- **Aditya Srivastava**
 - **Akshaya kumar**
 ---
 
