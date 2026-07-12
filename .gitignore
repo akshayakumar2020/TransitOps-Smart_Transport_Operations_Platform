@@ -1,0 +1,57 @@
+############################
+# Java / Spring Boot
+############################
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+backend/.factorypath
+backend/.mvn/wrapper/maven-wrapper.jar
+
+############################
+# Environment Variables
+############################
+.env
+backend/.env
+frontend/.env
+*.env.local
+
+############################
+# Node
+############################
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/dist/
+
+############################
+# Logs
+############################
+*.log
+logs/
+
+############################
+# IDE
+############################
+.vscode/
+.idea/
+*.iml
+
+############################
+# OS Files
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Cache
+############################
+.cache/
+.eslintcache
+
+############################
+# Misc
+############################
+*.pid
+*.seed
