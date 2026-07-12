@@ -247,9 +247,10 @@ Reports & Analytics
 
 # 🤝 Contributors
 
-- **Akanksha Pal**
-- **Team Members**
-
+- **Akanksha Devi**
+- **Aditya Chauhan**
+- **Akanksha Devi**
+- **Akshaya kumar**
 ---
 
 # 📄 License
