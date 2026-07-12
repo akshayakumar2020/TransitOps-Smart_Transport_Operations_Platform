@@ -1,45 +1,47 @@
 # 🚛 TransitOps Pro - Smart Transport Operations Platform
 
-> A modern, enterprise-grade Fleet & Transport Management System built to digitize logistics operations through intelligent fleet monitoring, trip management, maintenance tracking, and real-time analytics.
+> A modern, enterprise-grade Fleet & Transport Management System built using **Spring Boot**, **React**, and **PostgreSQL** to digitize logistics operations through intelligent fleet monitoring, trip management, maintenance tracking, fuel management, and real-time analytics.
 
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-brightgreen)
-![React](https://img.shields.io/badge/React-19-blue)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
+![React](https://img.shields.io/badge/React-19-61DAFB)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## 📌 Overview
+# 📖 Overview
 
-TransitOps Pro is a centralized Transport Operations Management Platform designed to help logistics companies efficiently manage their vehicles, drivers, trips, maintenance, fuel consumption, operational expenses, and business analytics.
+TransitOps Pro is an enterprise transport operations platform that helps logistics organizations efficiently manage their fleet, drivers, trips, maintenance schedules, fuel consumption, operational expenses, and reports from a centralized dashboard.
 
-The platform replaces traditional spreadsheets and manual tracking with a secure, role-based enterprise application that provides complete visibility into fleet operations and improves overall operational efficiency.
+The system replaces spreadsheets and manual processes with a secure, scalable, and role-based ERP solution.
 
 ---
 
-## 🎯 Problem Statement
+# 🎯 Problem Statement
 
-Many logistics organizations still rely on manual processes to manage transportation operations, resulting in:
+Many logistics companies still rely on manual spreadsheets and paper records to manage transportation operations.
+
+This results in:
 
 - Vehicle scheduling conflicts
-- Driver assignment issues
-- Missed maintenance schedules
-- Poor fuel tracking
+- Driver allocation issues
+- Missed maintenance
+- Fuel misuse
+- Poor operational visibility
 - High operational costs
-- Limited operational visibility
 
-TransitOps Pro addresses these challenges by providing a centralized ERP-based transport management platform.
+TransitOps Pro solves these challenges by providing a centralized transport management platform with automated business validations and real-time analytics.
 
 ---
 
-# 🚀 Key Features
+# ✨ Features
 
-## 🔐 Authentication & Security
+## 🔐 Authentication
 
-- JWT Authentication
-- Role-Based Access Control (RBAC)
 - Secure Login
+- JWT Authentication
+- Role Based Access Control (RBAC)
 - Session Management
 
 ---
@@ -47,79 +49,102 @@ TransitOps Pro addresses these challenges by providing a centralized ERP-based t
 ## 🚛 Vehicle Management
 
 - Vehicle Registration
-- Vehicle Status Tracking
-- Vehicle Documents
-- Vehicle Lifecycle
-- QR Code Support
+- Vehicle Availability
+- Vehicle Status
+- Vehicle Details
+- Capacity Management
 
 ---
 
-## 👨‍✈️ Driver Management
+## 👨 Driver Management
 
 - Driver Registration
-- License Tracking
-- Driver Availability
-- Driver Performance Score
+- License Management
+- Driver Status
+- Contact Details
+- License Expiry Tracking
 
 ---
 
-## 📦 Trip Management
+## 🚚 Trip Management
 
-- Trip Creation
-- Vehicle Assignment
-- Driver Assignment
-- Route Details
-- Trip Status Tracking
+- Create Trip
+- Assign Driver
+- Assign Vehicle
+- Dispatch Trip
+- Complete Trip
+- Trip Status
 
 ---
 
-## ⛽ Fuel Management
+## 🔧 Maintenance
+
+- Maintenance Records
+- Open / Close Maintenance
+- Vehicle Status Update
+- Maintenance Cost Tracking
+
+---
+
+## ⛽ Fuel & Expense Management
 
 - Fuel Logs
-- Fuel Cost Tracking
-- Mileage Calculation
-- Fuel Consumption Analytics
+- Expense Tracking
+- Operational Cost
+- Fuel Consumption
 
 ---
 
-## 🔧 Maintenance Management
+## 📊 Dashboard
 
-- Maintenance Requests
-- Approval Workflow
-- Service History
-- Predictive Maintenance Alerts
-
----
-
-## 💰 Expense Management
-
-- Fuel Expenses
-- Toll Charges
-- Parking Charges
-- Maintenance Expenses
-- Driver Allowances
-
----
-
-## 📊 Dashboard & Analytics
-
-- Fleet Utilization
-- Active Trips
+- Active Vehicles
 - Available Vehicles
-- Maintenance Overview
-- Revenue & Expense Dashboard
-- Fleet Health Score
+- Active Trips
+- Pending Trips
+- Drivers On Duty
+- Fleet Utilization
 
 ---
 
 ## 📈 Reports
 
-- Vehicle Reports
-- Driver Reports
-- Trip Reports
-- Fuel Reports
-- Maintenance Reports
-- Expense Reports
+- Fuel Report
+- Vehicle Report
+- Driver Report
+- Maintenance Report
+- Expense Report
+
+---
+
+# 🖼️ Application Screenshots
+
+## 🔐 Login
+
+![Login](docs/screenshots/login.png)
+
+---
+
+## 📊 Dashboard
+
+![Dashboard](docs/screenshots/dashboard.png)
+
+---
+
+## 👨 Driver Management
+
+![Drivers](docs/screenshots/drivers.png)
+
+---
+
+## 🔧 Maintenance
+
+![Maintenance](docs/screenshots/maintenance.png)
+
+---
+
+## ⛽ Fuel & Expense Management
+
+![Fuel](docs/screenshots/fuel-expense.png)
 
 ---
 
@@ -128,17 +153,20 @@ TransitOps Pro addresses these challenges by providing a centralized ERP-based t
 ```
 TransitOps-Pro
 │
-├── frontend/
+├── backend
 │
-├── backend/
+├── frontend
 │
-├── database/
+├── docs
+│   └── screenshots
 │
-├── docs/
+├── database
 │
-├── postman/
+├── postman
 │
-└── README.md
+├── README.md
+│
+└── .gitignore
 ```
 
 ---
@@ -147,114 +175,177 @@ TransitOps-Pro
 
 ## Frontend
 
-- React
+- React 19
 - Vite
 - Tailwind CSS
 - Axios
-- React Router DOM
+- React Router
+
+---
 
 ## Backend
 
 - Java 21
-- Spring Boot
+- Spring Boot 3
 - Spring Security
 - JWT Authentication
 - Spring Data JPA
 - Hibernate
 - Maven
 
+---
+
 ## Database
 
 - PostgreSQL
 
+---
+
 ## Tools
 
+- IntelliJ IDEA
+- VS Code
 - Git
 - GitHub
-- Swagger
+- Swagger UI
 - Postman
-- Docker
-- Cloudinary
 
 ---
 
 # 👥 User Roles
 
-- Admin
 - Fleet Manager
-- Dispatcher
 - Driver
-- Finance Manager
+- Safety Officer
+- Financial Analyst
+- Administrator
 
 ---
 
-# 📌 Workflow
+# 🔄 System Workflow
 
 ```
 Login
-      │
-      ▼
+   │
+   ▼
 Dashboard
-      │
-      ▼
-Vehicle Registration
-      │
-      ▼
-Driver Registration
-      │
-      ▼
-Create Trip
-      │
-      ▼
-Business Validation
-      │
-      ▼
-Assign Driver & Vehicle
-      │
-      ▼
-Dispatch Trip
-      │
-      ▼
-Fuel & Expense Tracking
-      │
-      ▼
-Maintenance
-      │
-      ▼
-Reports & Analytics
+   │
+   ├── Vehicle Management
+   ├── Driver Management
+   ├── Trip Management
+   ├── Maintenance
+   ├── Fuel & Expenses
+   └── Reports
 ```
 
 ---
 
-# ⭐ Unique Features
+# 🚀 Running the Project
 
-- Smart Vehicle Recommendation
-- Driver Performance Score
-- Fleet Health Dashboard
-- Predictive Maintenance
+## Backend
+
+Navigate to backend
+
+```bash
+cd backend
+```
+
+Run Spring Boot
+
+```bash
+mvn spring-boot:run
+```
+
+Backend runs on
+
+```
+http://localhost:8081
+```
+
+Swagger
+
+```
+http://localhost:8081/swagger-ui/index.html
+```
+
+---
+
+## Frontend
+
+Navigate to frontend
+
+```bash
+cd frontend
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run
+
+```bash
+npm run dev
+```
+
+Frontend runs on
+
+```
+http://localhost:5173
+```
+
+Login Page
+
+```
+http://localhost:5173/login
+```
+
+---
+
+# 🗄️ Database
+
+Database
+
+```
+PostgreSQL
+```
+
+Default Port
+
+```
+5432
+```
+
+---
+
+# 🚀 Future Enhancements
+
+- Live GPS Tracking
 - QR Code Vehicle Management
-- Live Trip Status
+- Driver Performance Score
+- Predictive Maintenance
 - Email Notifications
-- Interactive Analytics Dashboard
+- Mobile Application
+- Fleet Health Dashboard
+- AI Route Optimization
 
 ---
 
-# 📅 Project Status
+# 👨‍💻 Contributors
+- Akshaya Kumar(Team Leader)
+- Akanksha Devi
+- Aditya Srivasatava
+ -Aditya chauhan
 
-🚧 Currently Under Development
+
+---
+
+# 📜 License
+
+Licensed under the MIT License.
 
 ---
 
-# 🤝 Contributors
-
-- **Akanksha Devi**
-- **Aditya Chauhan**
-- **Aditya Srivastava**
-- **Akshaya kumar**
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
-
----
+⭐ If you like this project, don't forget to give it a star.
