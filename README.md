@@ -6,6 +6,16 @@ TransitOps Pro is a modern Fleet & Transport Management System developed using *
 
 ---
 
+## 📂 Project Resources
+
+All supporting files are available on Google Drive.
+
+🔗 https://drive.google.com/file/d/1ViMPfBT9o1kq0OvLF_F6Buk_7QELSbMP/view?usp=drivesdk
+
+---
+
+
+
 ## 📌 About the Project
 
 TransitOps Pro digitizes daily transport operations by replacing manual spreadsheets with a secure and scalable web application.
@@ -162,7 +172,7 @@ Dashboard
 ### Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/TransitOps-Smart_Transport_Operations_Platform.git
+git clone https://github.com/akshayakumar2020/TransitOps-Smart_Transport_Operations_Platform
 ```
 
 ---
