@@ -1,0 +1,63 @@
+/* Login.css */
+/* Premium TransitOps Login */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f7f8fc}
+.auth-container{display:flex;min-height:100vh;overflow:hidden}
+.left-panel{width:38%;background:linear-gradient(180deg,#0d0d0d,#1d1d1d);color:#fff;padding:60px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.left-panel::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.04);top:-80px;right:-80px}
+.left-content{z-index:2}
+.logo-box{width:88px;height:88px;border-radius:22px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);margin-bottom:28px}
+.logo-box img{width:54px}
+.brand-title{color:#fff!important;font-size:48px!important;margin-bottom:0!important}
+.brand-subtitle{color:#cfcfcf!important;font-size:18px}
+.divider{width:72px;height:4px;background:#fff;border-radius:3px;margin:36px 0}
+.feature-heading{font-size:28px;margin-bottom:28px}
+.feature-list{display:flex;flex-direction:column;gap:18px}
+.feature-item{display:flex;align-items:center;gap:14px;font-size:18px}
+.feature-item svg{color:#4ade80}
+.copyright{color:#999;font-size:13px}
+
+.right-panel{flex:1;display:flex;align-items:center;justify-content:center;position:relative;background:
+radial-gradient(circle at top right,#eef3ff,#fff 45%),
+radial-gradient(circle at bottom left,#f5f5f5,#fff 45%)}
+.right-panel:before,.right-panel:after{content:"";position:absolute;border-radius:50%;filter:blur(90px);animation:float 14s ease-in-out infinite}
+.right-panel:before{width:320px;height:320px;background:#dbe7ff;top:-80px;right:-80px}
+.right-panel:after{width:260px;height:260px;background:#ececec;bottom:-60px;left:-60px;animation-direction:reverse}
+
+.login-card{width:560px;max-width:92%;background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.7);border-radius:24px;padding:48px;box-shadow:0 30px 70px rgba(0,0,0,.08);transition:.35s}
+.login-card:hover{transform:translateY(-4px);box-shadow:0 40px 90px rgba(0,0,0,.12)}
+.welcome-title{margin-bottom:4px!important}
+.welcome-text{display:block;margin-bottom:26px}
+
+.ant-form-item-label>label{font-weight:600}
+.ant-input-affix-wrapper,.ant-select-selector{height:50px!important;border-radius:12px!important;transition:.3s!important}
+.ant-input,.ant-input-password input{font-size:15px}
+.ant-input-affix-wrapper:hover,.ant-select:hover .ant-select-selector{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.06)}
+.ant-input-affix-wrapper-focused,.ant-select-focused .ant-select-selector{box-shadow:0 0 0 4px rgba(0,0,0,.08)!important}
+
+.login-options{display:flex;justify-content:space-between;align-items:center;margin:10px 0 24px}
+.login-options a{text-decoration:none;color:#111;position:relative}
+.login-options a:after,.signup-section a:after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:#000;transition:.3s}
+.login-options a:hover:after,.signup-section a:hover:after{width:100%}
+
+.login-btn{height:52px!important;border-radius:12px!important;background:#000!important;border:none!important;font-weight:600;position:relative;overflow:hidden}
+.login-btn:before{content:"";position:absolute;left:-120%;top:0;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transition:.8s}
+.login-btn:hover:before{left:120%}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(0,0,0,.25)}
+
+.signup-section{text-align:center;margin-top:26px;display:flex;justify-content:center;gap:6px}
+.signup-section a{text-decoration:none;color:#000;font-weight:600;position:relative}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-20px)}
+}
+
+@media(max-width:992px){
+.left-panel{display:none}
+.right-panel{padding:20px}
+.login-card{padding:32px}
+}

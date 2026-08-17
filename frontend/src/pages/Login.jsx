@@ -1,83 +1,315 @@
-import React, { useState } from 'react'
-import { Form, Input, Button, Typography, Alert, Radio } from 'antd'
-import { MailOutlined, LockOutlined } from '@ant-design/icons'
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext.jsx'
+import React, { useState } from "react";
+import {
+  Form,
+  Input,
+  Button,
+  Typography,
+  Alert,
+  Checkbox,
+  Select,
+} from "antd";
+import {
+  MailOutlined,
+  LockOutlined,
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+} from "@ant-design/icons";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FaCheck } from "react-icons/fa";
 
-const { Title, Text } = Typography
+import { useAuth } from "../context/AuthContext";
+import truckLogo from "../assets/truck.svg";
+
+import "./Login.css";
+
+const { Title, Text } = Typography;
+const { Option } = Select;
 
 export default function Login() {
-  const { login } = useAuth()
-  const navigate = useNavigate()
-  const [form] = Form.useForm()
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const { login } = useAuth();
+
+  const navigate = useNavigate();
+
+  const [form] = Form.useForm();
+
+  const [loading, setLoading] = useState(false);
+
+  const [error, setError] = useState("");
+
+  const handleRoleChange = (role) => {
+    switch (role) {
+      case "manager":
+        form.setFieldsValue({
+          email: "manager@transitops.com",
+          password: "Password@123",
+        });
+        break;
+
+      case "driver":
+        form.setFieldsValue({
+          email: "driver@transitops.com",
+          password: "Password@123",
+        });
+        break;
+
+      case "safety":
+        form.setFieldsValue({
+          email: "safety@transitops.com",
+          password: "Password@123",
+        });
+        break;
+
+      case "analyst":
+        form.setFieldsValue({
+          email: "analyst@transitops.com",
+          password: "Password@123",
+        });
+        break;
+
+      default:
+        form.setFieldsValue({
+          email: "",
+          password: "",
+        });
+    }
+  };
 
   const onFinish = async (values) => {
-    setError('')
-    setLoading(true)
-    try {
-      await login(values.email, values.password)
-      navigate('/dashboard')
-    } catch (err) {
-      setError(err?.response?.data?.message || 'Invalid email or password')
-    } finally {
-      setLoading(false)
-    }
-  }
+    setLoading(true);
 
-  const handleRoleSelect = (e) => {
-    const role = e.target.value
-    if (role === 'manager') {
-      form.setFieldsValue({ email: 'manager@transitops.com', password: 'Password@123' })
-    } else if (role === 'driver') {
-      form.setFieldsValue({ email: 'driver@transitops.com', password: 'Password@123' })
-    } else if (role === 'safety') {
-      form.setFieldsValue({ email: 'safety@transitops.com', password: 'Password@123' })
-    } else if (role === 'analyst') {
-      form.setFieldsValue({ email: 'analyst@transitops.com', password: 'Password@123' })
-    } else {
-      form.setFieldsValue({ email: '', password: '' })
+    setError("");
+
+    try {
+      await login(values.email, values.password);
+
+      navigate("/dashboard");
+    } catch (err) {
+      setError(
+        err?.response?.data?.message || "Invalid email or password."
+      );
+    } finally {
+      setLoading(false);
     }
-  }
+  };
+
+  const features = [
+    "Fleet Management",
+    "Driver Assignment",
+    "Route Planning",
+    "Vehicle Maintenance",
+    "Fuel & Expense Tracking",
+    "Real-time Analytics",
+  ];
 
   return (
-    <div className="auth-shell">
-      <div className="auth-card">
-        <div style={{ textAlign: 'center', marginBottom: 20 }}>
-          <div style={{ fontSize: 36 }}>🚚</div>
-          <Title level={3} style={{ margin: 0, color: '#1a2a63' }}>TransitOps</Title>
-          <Text type="secondary">Smart Transport Operations Platform</Text>
+    <div className="auth-container">
+      {/* LEFT PANEL */}
+
+      <motion.div
+        className="left-panel"
+        initial={{ x: -80, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="left-content">
+          <motion.div
+            className="logo-box"
+            animate={{ y: [0, -8, 0] }}
+            transition={{
+              repeat: Infinity,
+              duration: 4,
+            }}
+          >
+            <img src={truckLogo} alt="Truck" />
+          </motion.div>
+
+          <Title className="brand-title">TransitOps</Title>
+
+          <Text className="brand-subtitle">
+            Smart Transport Operations Platform
+          </Text>
+
+          <div className="divider"></div>
+
+          <h3 className="feature-heading">
+            One platform for every team
+          </h3>
+
+          <div className="feature-list">
+            {features.map((feature, index) => (
+              <motion.div
+                className="feature-item"
+                key={feature}
+                initial={{
+                  opacity: 0,
+                  x: -30,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                transition={{
+                  delay: 0.4 + index * 0.12,
+                }}
+              >
+                <FaCheck />
+
+                <span>{feature}</span>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
-          <Radio.Group onChange={handleRoleSelect} defaultValue="custom" buttonStyle="solid" style={{ width: '100%', textAlign: 'center' }}>
-            <Radio.Button value="manager" style={{ width: '20%', fontSize: 11, padding: '0 2px' }}>Manager</Radio.Button>
-            <Radio.Button value="driver" style={{ width: '20%', fontSize: 11, padding: '0 2px' }}>Driver</Radio.Button>
-            <Radio.Button value="safety" style={{ width: '20%', fontSize: 11, padding: '0 2px' }}>Safety</Radio.Button>
-            <Radio.Button value="analyst" style={{ width: '20%', fontSize: 11, padding: '0 2px' }}>Analyst</Radio.Button>
-            <Radio.Button value="custom" style={{ width: '20%', fontSize: 11, padding: '0 2px' }}>Custom</Radio.Button>
-          </Radio.Group>
+        <div className="copyright">
+          © 2026 TransitOps. All rights reserved.
         </div>
+      </motion.div>
 
-        {error && <Alert type="error" message={error} showIcon style={{ marginBottom: 16 }} />}
+      {/* RIGHT PANEL */}
 
-        <Form form={form} layout="vertical" onFinish={onFinish} requiredMark={false}>
-          <Form.Item name="email" label="Email" rules={[{ required: true, message: 'Email is required' }]}>
-            <Input prefix={<MailOutlined />} placeholder="you@company.com" size="large" />
-          </Form.Item>
-          <Form.Item name="password" label="Password" rules={[{ required: true, message: 'Password is required' }]}>
-            <Input.Password prefix={<LockOutlined />} placeholder="••••••••" size="large" />
-          </Form.Item>
-          <Button type="primary" htmlType="submit" block size="large" loading={loading}>
-            Log In
-          </Button>
-        </Form>
+      <div className="right-panel">
+        <motion.div
+          className="login-card"
+          initial={{
+            opacity: 0,
+            y: 60,
+            scale: 0.95,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+        >
+          <Title level={1} className="welcome-title">
+            Welcome back 👋
+          </Title>
 
-        <div style={{ textAlign: 'center', marginTop: 16 }}>
-          <Text type="secondary">No account? <Link to="/signup">Sign up</Link></Text>
-        </div>
+          <Text className="welcome-text">
+            Sign in to continue managing your transport operations.
+          </Text>
+
+          {error && (
+            <Alert
+              type="error"
+              message={error}
+              showIcon
+              style={{
+                marginTop: 25,
+                marginBottom: 25,
+              }}
+            />
+          )}
+
+          <Form
+            form={form}
+            layout="vertical"
+            onFinish={onFinish}
+            requiredMark={false}
+          >
+            <Form.Item
+              label="Email"
+              name="email"
+              rules={[
+                {
+                  required: true,
+                  message: "Email is required",
+                },
+              ]}
+            >
+              <Input
+                prefix={<MailOutlined />}
+                placeholder="you@company.com"
+                size="large"
+              />
+            </Form.Item>
+
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "Password is required",
+                },
+              ]}
+            >
+              <Input.Password
+                prefix={<LockOutlined />}
+                placeholder="Enter your password"
+                size="large"
+                iconRender={(visible) =>
+                  visible ? (
+                    <EyeTwoTone />
+                  ) : (
+                    <EyeInvisibleOutlined />
+                  )
+                }
+              />
+            </Form.Item>
+
+            <Form.Item
+              label="Role"
+              name="role"
+              initialValue="manager"
+            >
+              <Select
+                size="large"
+                onChange={handleRoleChange}
+              >
+                <Option value="manager">
+                  Fleet Manager
+                </Option>
+
+                <Option value="driver">
+                  Driver
+                </Option>
+
+                <Option value="safety">
+                  Safety Officer
+                </Option>
+
+                <Option value="analyst">
+                  Operations Analyst
+                </Option>
+
+                <Option value="custom">
+                  Custom Login
+                </Option>
+              </Select>
+            </Form.Item>
+
+            <div className="login-options">
+              <Checkbox>Remember me</Checkbox>
+
+              <a href="/">Forgot password?</a>
+            </div>
+
+            <Button
+              type="primary"
+              htmlType="submit"
+              size="large"
+              block
+              loading={loading}
+              className="login-btn"
+            >
+              Sign In
+            </Button>
+          </Form>
+
+          <div className="signup-section">
+            <Text type="secondary">
+              Don't have an account?
+            </Text>
+
+            <Link to="/signup">Create Account</Link>
+          </div>
+        </motion.div>
       </div>
     </div>
-  )
+  );
 }

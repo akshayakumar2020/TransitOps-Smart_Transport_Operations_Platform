@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import App from './App.jsx'
+import 'leaflet/dist/leaflet.css'
 import { AuthProvider } from './context/AuthContext.jsx'
 import './index.css'
 

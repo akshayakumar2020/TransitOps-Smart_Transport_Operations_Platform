@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Spin, Empty } from 'antd'
+import FleetMap from '../components/FleetMap'
 import {
   CarOutlined,
   ToolOutlined,
@@ -103,54 +104,125 @@ export default function Dashboard() {
       <div className="page-title">Fleet Dashboard</div>
       <div className="page-subtitle">Real-time status overview of vehicles, drivers, and trips</div>
 
-      <Row gutter={[16, 16]}>
-        {cards.map((c) => (
-          <Col xs={24} sm={12} md={8} lg={6} key={c.label}>
-            <div className="kpi-card" style={{ background: c.gradient, cursor: 'pointer' }} onClick={() => navigate(c.path)}>
-              <div className="kpi-header">
-                <span className="kpi-label">{c.label}</span>
-                <div className="kpi-icon-wrapper">
-                  {c.icon}
-                </div>
-              </div>
-              <div className="kpi-value">{c.value}</div>
-            </div>
-          </Col>
-        ))}
-      </Row>
+      {/* Fleet Map + Fleet Status */}
+<Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+  {/* Fleet Map */}
+  <Col xs={24} lg={16}>
+    <FleetMap />
+  </Col>
 
-      <Row gutter={[24, 24]} style={{ marginTop: 24 }}>
-        <Col xs={24} lg={12}>
-          <div style={{ background: 'white', borderRadius: 16, padding: 24, border: '1px solid rgba(226, 232, 240, 0.8)', boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)' }}>
-            <div style={{ fontWeight: 600, fontSize: 16, marginBottom: 20, color: '#0f172a' }}>Fleet Status Distribution</div>
-            <ResponsiveContainer width="100%" height={260}>
-              <PieChart>
-                <Pie data={fleetPieData} dataKey="value" nameKey="name" innerRadius={70} outerRadius={95} paddingAngle={4}>
-                  {fleetPieData.map((entry, index) => (
-                    <Cell key={entry.name} fill={PIE_COLORS[index % PIE_COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip contentStyle={{ borderRadius: 8 }} />
-                <Legend iconType="circle" wrapperStyle={{ paddingTop: 10 }} />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </Col>
-        <Col xs={24} lg={12}>
-          <div style={{ background: 'white', borderRadius: 16, padding: 24, border: '1px solid rgba(226, 232, 240, 0.8)', boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)' }}>
-            <div style={{ fontWeight: 600, fontSize: 16, marginBottom: 20, color: '#0f172a' }}>Trips Summary</div>
-            <ResponsiveContainer width="100%" height={260}>
-              <BarChart data={tripsBarData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
-                <XAxis dataKey="name" tickLine={false} axisLine={false} tick={{ fill: '#64748b' }} />
-                <YAxis allowDecimals={false} tickLine={false} axisLine={false} tick={{ fill: '#64748b' }} />
-                <Tooltip cursor={{ fill: 'rgba(241, 245, 249, 0.5)' }} contentStyle={{ borderRadius: 8 }} />
-                <Bar dataKey="trips" fill="#3b82f6" radius={[6, 6, 0, 0]} barSize={40} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </Col>
-      </Row>
+  {/* Fleet Status Distribution */}
+  <Col xs={24} lg={8}>
+    <div
+      style={{
+        background: 'white',
+        borderRadius: 16,
+        padding: 24,
+        border: '1px solid rgba(226, 232, 240, 0.8)',
+        boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+        height: '100%',
+      }}
+    >
+      <div
+        style={{
+          fontWeight: 600,
+          fontSize: 16,
+          marginBottom: 20,
+          color: '#0f172a',
+        }}
+      >
+        Fleet Status Distribution
+      </div>
+
+      <ResponsiveContainer width="100%" height={350}>
+        <PieChart>
+          <Pie
+            data={fleetPieData}
+            dataKey="value"
+            nameKey="name"
+            innerRadius={70}
+            outerRadius={95}
+            paddingAngle={4}
+          >
+            {fleetPieData.map((entry, index) => (
+              <Cell
+                key={entry.name}
+                fill={PIE_COLORS[index % PIE_COLORS.length]}
+              />
+            ))}
+          </Pie>
+
+          <Tooltip contentStyle={{ borderRadius: 8 }} />
+          <Legend
+            iconType="circle"
+            wrapperStyle={{ paddingTop: 10 }}
+          />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  </Col>
+</Row>
+
+{/* Trips Summary */}
+<Row gutter={[24, 24]} style={{ marginTop: 24 }}>
+  <Col span={24}>
+    <div
+      style={{
+        background: 'white',
+        borderRadius: 16,
+        padding: 24,
+        border: '1px solid rgba(226, 232, 240, 0.8)',
+        boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+      }}
+    >
+      <div
+        style={{
+          fontWeight: 600,
+          fontSize: 16,
+          marginBottom: 20,
+          color: '#0f172a',
+        }}
+      >
+        Trips Summary
+      </div>
+
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={tripsBarData}>
+          <CartesianGrid
+            strokeDasharray="3 3"
+            stroke="#f1f5f9"
+          />
+
+          <XAxis
+            dataKey="name"
+            tickLine={false}
+            axisLine={false}
+            tick={{ fill: '#64748b' }}
+          />
+
+          <YAxis
+            allowDecimals={false}
+            tickLine={false}
+            axisLine={false}
+            tick={{ fill: '#64748b' }}
+          />
+
+          <Tooltip
+            cursor={{ fill: 'rgba(241,245,249,0.5)' }}
+            contentStyle={{ borderRadius: 8 }}
+          />
+
+          <Bar
+            dataKey="trips"
+            fill="#3b82f6"
+            radius={[6, 6, 0, 0]}
+            barSize={50}
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  </Col>
+</Row>
     </div>
   )
 }
